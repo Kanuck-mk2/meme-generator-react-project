@@ -3,9 +3,9 @@
   grid-template: 40px 40px / 1fr 1fr;
   gap: 1.1rem;
 }
+
 .form--input {
   font-family: sans-serif;
-
   border-radius: 5px;
   border: 1px solid #d5d4d8;
   text-indent: 5px;
@@ -15,10 +15,15 @@
   grid-column: 1 / -1;
   border-radius: 20px;
   background: linear-gradient(to right, #800080, #4b0082);
-
   color: white;
   border: 1px solid black;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px 2px rgb(153, 82, 220);
 }
 
 .meme--image {
@@ -33,9 +38,8 @@
   font-size: 60px;
   color: white;
   text-align: center;
-
   width: 100%;
-  top: 10px;
+  position: absolute;
 }
 
 .meme--text.top {
