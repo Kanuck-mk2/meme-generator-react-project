@@ -22,6 +22,7 @@ export default function Meme() {
       try {
         // Fetch meme templates from Imgflip API
         const response = await axios.get('https://api.imgflip.com/get_memes');
+        console.log('Meme Templates:', response.data.data.memes);
 
         // Update memeTemplates state with fetched data
         setMemeTemplates(response.data.data.memes);

@@ -32,20 +32,25 @@
   margin-top: 20px;
   display: block;
   margin: 0 auto;
+  position: relative; /* Make the image container relative for positioning */
 }
 
 .meme--text {
   font-size: 60px;
   color: white;
   text-align: center;
-  width: 100%;
   position: absolute;
+  width: 100%;
+  top: 50%; /* Center the text vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
 }
 
 .meme--text.top {
   top: 10px;
+  transform: translateY(0); /* Reset the transform for top text */
 }
 
 .meme--text.bottom {
   bottom: 10px;
+  transform: translateY(-100%); /* Reset the transform for bottom text */
 }
