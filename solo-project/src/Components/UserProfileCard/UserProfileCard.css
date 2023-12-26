@@ -1,0 +1,66 @@
+.upc {
+  width: 350px;
+  margin: 20px;
+  border-radius: 25px 25px;
+  padding-bottom: 20px;
+  background-color: rgb(12, 12, 12);
+}
+.gradiant {
+  background-image: linear-gradient(#91baff, #205fff);
+  height: 110px;
+  border-radius: 15px 15px 5px 5px;
+}
+.profile-down img {
+  height: 150px;
+  border-radius: 100px;
+  margin-top: -75px;
+  padding: 5px;
+  background: rgb(152, 171, 246);
+}
+
+.profile-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+.profile-description {
+  padding: 20px 40px;
+  font-size: 16px;
+  color: whitesmoke;
+}
+.profile-interest-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: whitesmoke;
+}
+.profile-interest {
+  padding: 20px 40px;
+  font-size: 16px;
+  color: whitesmoke;
+}
+
+.profile-button {
+  font-size: 16px;
+  background: #2b5dff;
+  margin: 10px 100px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  border-radius: 40px;
+}
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+.profile-button2 {
+  font-size: 16px;
+  background: #2b5dff;
+  margin: 10px 100px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  border-radius: 40px;
+}
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}

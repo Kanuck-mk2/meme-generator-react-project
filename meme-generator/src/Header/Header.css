@@ -1,0 +1,52 @@
+body {
+  font-family: 'Karla', sans-serif 'Trebuchet MS', 'Lucida Sans Unicode',
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+
+  padding: 10px 20px;
+  background: linear-gradient(
+    to right,
+    #800080,
+    #4b0082
+  ); /* Purple gradient background */
+  color: #fff;
+  height: auto;
+}
+
+.header--logo {
+  width: 50px; /* Adjust the size of your logo */
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px; /* Add right margin for spacing */
+}
+
+.header--title {
+  margin: 0;
+  margin-right: 1rem;
+
+  font-size: 1.25rem;
+}
+
+.header--project {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* Optional: Add some hover effect to the title */
+.header--title:hover {
+  color: #ffa500; /* Change the color on hover */
+  cursor: pointer;
+}
