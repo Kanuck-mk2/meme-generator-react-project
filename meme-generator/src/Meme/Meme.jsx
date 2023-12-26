@@ -1,7 +1,9 @@
+// Importing the CSS file for styling
 import './Meme.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// Meme component definition
 export default function Meme() {
   // State to hold meme data (topText, bottomText, randomImage)
   const [meme, setMeme] = useState({
@@ -15,6 +17,7 @@ export default function Meme() {
 
   // Effect hook to fetch meme templates when the component mounts
   useEffect(() => {
+    // Function to fetch meme templates asynchronously
     const fetchMemeTemplates = async () => {
       try {
         // Fetch meme templates from Imgflip API
@@ -29,7 +32,7 @@ export default function Meme() {
 
     // Call the fetchMemeTemplates function when the component mounts
     fetchMemeTemplates();
-  }, []);
+  }, []); // Empty dependency array ensures this effect runs only once
 
   // Function to handle getting a new meme image
   const getMemeImage = () => {
@@ -51,6 +54,7 @@ export default function Meme() {
     <main>
       {/* Form for user input and meme generation */}
       <div className="form">
+        {/* Input for top text */}
         <input
           className="form--input"
           placeholder="Top text"
@@ -59,6 +63,7 @@ export default function Meme() {
           onChange={(e) => setMeme({ ...meme, topText: e.target.value })}
         />
 
+        {/* Input for bottom text */}
         <input
           className="form--input"
           placeholder="Bottom text"

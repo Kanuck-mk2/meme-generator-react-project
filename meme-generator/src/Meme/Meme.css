@@ -3,7 +3,7 @@
   grid-template: 40px 40px / 1fr 1fr;
   gap: 1.1rem;
 }
-.form--inputs {
+.form--input {
   font-family: sans-serif;
 
   border-radius: 5px;
@@ -15,7 +15,33 @@
   grid-column: 1 / -1;
   border-radius: 20px;
   background: linear-gradient(to right, #800080, #4b0082);
+
   color: white;
   border: 1px solid black;
   cursor: pointer;
+}
+
+.meme--image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.meme--text {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+
+  width: 100%;
+  top: 10px;
+}
+
+.meme--text.top {
+  top: 10px;
+}
+
+.meme--text.bottom {
+  bottom: 10px;
 }
