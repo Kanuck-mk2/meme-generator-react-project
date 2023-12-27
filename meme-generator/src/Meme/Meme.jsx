@@ -1,61 +1,56 @@
-// Importing the CSS file for styling
 import './Meme.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// Meme component definition
-export default function Meme() {
-  // State to hold meme data (topText, bottomText, randomImage)
+const Meme = () => {
   const [meme, setMeme] = useState({
     topText: '',
     bottomText: '',
     randomImage: '',
   });
 
-  // State to hold meme templates fetched from Imgflip API
   const [memeTemplates, setMemeTemplates] = useState([]);
 
-  // Effect hook to fetch meme templates when the component mounts
   useEffect(() => {
-    // Function to fetch meme templates asynchronously
+    let isMounted = true;
+
     const fetchMemeTemplates = async () => {
       try {
-        // Fetch meme templates from Imgflip API
         const response = await axios.get('https://api.imgflip.com/get_memes');
-        console.log('Meme Templates:', response.data.data.memes);
-
-        // Update memeTemplates state with fetched data
-        setMemeTemplates(response.data.data.memes);
+        if (isMounted) {
+          const templates = response.data.data.memes;
+          setMemeTemplates(templates);
+          console.log('Meme Templates:', templates);
+        }
       } catch (error) {
         console.error('Error fetching meme templates:', error);
       }
     };
 
-    // Call the fetchMemeTemplates function when the component mounts
     fetchMemeTemplates();
-  }, []); // Empty dependency array ensures this effect runs only once
 
-  // Function to handle getting a new meme image
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const getMemeImage = () => {
-    // Generate a random index to pick a meme template
-    const randomNumber = Math.floor(Math.random() * memeTemplates.length);
-
-    // Get the URL of the randomly selected meme template
-    const url = memeTemplates[randomNumber].url;
-
-    // Update the meme state with the new random image URL
-    setMeme((prevMeme) => ({
-      ...prevMeme,
-      randomImage: url,
-    }));
+    // Check if memeTemplates array is not empty
+    if (memeTemplates.length > 0) {
+      const randomNumber = Math.floor(Math.random() * memeTemplates.length);
+      const url = memeTemplates[randomNumber].url;
+      setMeme((prevMeme) => ({
+        ...prevMeme,
+        randomImage: url,
+      }));
+    } else {
+      console.warn('Meme templates array is empty');
+    }
   };
 
-  // JSX for the Meme component
   return (
     <main>
-      {/* Form for user input and meme generation */}
       <div className="form">
-        {/* Input for top text */}
         <input
           className="form--input"
           placeholder="Top text"
@@ -64,7 +59,6 @@ export default function Meme() {
           onChange={(e) => setMeme({ ...meme, topText: e.target.value })}
         />
 
-        {/* Input for bottom text */}
         <input
           className="form--input"
           placeholder="Bottom text"
@@ -73,16 +67,16 @@ export default function Meme() {
           onChange={(e) => setMeme({ ...meme, bottomText: e.target.value })}
         />
 
-        {/* Button to trigger the generation of a new meme image */}
         <button className="form-button" onClick={getMemeImage}>
           Get a new meme image
         </button>
       </div>
 
-      {/* Display generated meme with top and bottom text */}
       <div className="meme--text top">{meme.topText}</div>
       <img src={meme.randomImage} className="meme--image" alt="Random Meme" />
       <div className="meme--text bottom">{meme.bottomText}</div>
     </main>
   );
-}
+};
+
+export default Meme;
